@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "librerias SVG/d3.v7.min.js"></script>
+</head>
+<body>
+
+    <div class="canvas">
+
+    </div>
+    <script>
+
+        const arrayData = [8, 15, 34, 22, 11, 36, 12, 20, 35]
+        const colores = ['blue', 'orange', 'green', 'red', 'purple', 'gray', 'pink']
+        
+        const canvas = d3.select('.canvas')
+
+        const svg = canvas.append('svg')
+        .attr('width', '100%')
+        .attr('height', 300)
+
+        const rect = svg.selectAll('rect')
+
+        rect.data(arrayData)
+            .enter().append('rect')
+            .attr('width', 50)
+            .attr('height', (d, i) => {
+                console.log("d = ", d)
+                console.log("i = ", i)
+                return d * 2
+            })
+            .attr('x', (d, i) => i * 55)
+            .attr('y', (d, i) => 100 - (d * 2))
+            .attr('opacity', '50%')
+            .attr('fill', (d, i) => colores[i])
+
+
+    </script>
+</body>
+</html>

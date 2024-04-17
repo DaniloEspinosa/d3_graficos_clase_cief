@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "librerias SVG/d3.v7.min.js"></script>
+</head>
+<body>
+
+    <div class="canvas">
+
+    </div>
+    <script>
+
+        const arrayData = [
+    {valor : 8, color: 'darkgreen'},
+    {valor : 15, color: 'orange'},
+    {valor : 34, color: 'blue'},
+    {valor : 22, color: 'red'},
+    {valor : 11, color: 'purple'},
+    {valor : 36, color: 'gray'},
+    {valor : 12, color: 'pink'},
+    {valor : 20, color: 'darkgreen'},
+    {valor : 35, color: 'darkgreen'}
+    ]
+         
+        const canvas = d3.select('.canvas')
+
+        const svg = canvas.append('svg')
+        .attr('width', '100%')
+        .attr('height', 500)
+
+        const rect = svg.selectAll('rect')
+
+        rect.data(arrayData)
+            .enter().append('rect')
+            .attr('height', 50)
+            .attr('width', (d, i) => {
+                console.log("d = ", d)
+                console.log("i = ", i)
+                return d.valor * 2
+            })
+            .attr('y', (d, i) => i * 55)
+            //.attr('x', (d, i) => 100 - (d * 2))
+            .attr('x', 0)
+
+            .attr('opacity', '50%')
+            .attr('fill', d => d.color)
+
+
+    </script>
+</body>
+</html>

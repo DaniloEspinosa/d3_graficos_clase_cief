@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "librerias SVG/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="canvas1"></div>
+    <div class="canvas2"></div>
+
+    <script>
+        // document.querySelector(".canvas1").innerHTML = '<p>Hola!</p>'
+        // d3.select('.canvas2')
+        //     .append('p')
+        //     .text('Hola!')
+        
+        // d3.select('.canvas2 p').style('font-size', '24px')
+
+        const canvas = d3.select('.canvas1')
+
+        const svg = canvas.append('svg')
+        .attr('width', 200)
+        .attr('heigth', 200)
+
+
+        const circle = svg.append('circle')
+        .attr('cx', 100)
+        .attr('cy', 100)
+        .attr('r', 50)
+        .style('fill', 'blue')
+        .style('fill-opacity', '50%')
+
+        const rect = svg.append('rect')
+        .attr('width', 100)
+        .attr('height', 200)
+        .attr('x', 100)
+        .attr('fill-opacity', '50%')
+
+
+
+
+    </script>
+</body>
+</html>
